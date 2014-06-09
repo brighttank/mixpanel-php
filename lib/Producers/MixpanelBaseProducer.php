@@ -3,6 +3,7 @@ require_once(dirname(__FILE__) . "/../Base/MixpanelBase.php");
 require_once(dirname(__FILE__) . "/../ConsumerStrategies/FileConsumer.php");
 require_once(dirname(__FILE__) . "/../ConsumerStrategies/CurlConsumer.php");
 require_once(dirname(__FILE__) . "/../ConsumerStrategies/SocketConsumer.php");
+require_once(dirname(__FILE__) . "/../ConsumerStrategies/RabbitmqConsumer.php");
 
 if (!function_exists('json_encode')) {
     throw new Exception('The JSON PHP extension is required.');
@@ -38,6 +39,7 @@ abstract class Producers_MixpanelBaseProducer extends Base_MixpanelBase {
     private $_consumers = array(
         "file"      =>  "ConsumerStrategies_FileConsumer",
         "curl"      =>  "ConsumerStrategies_CurlConsumer",
+        "rabbitmq"      =>  "ConsumerStrategies_RabbitmqConsumer",
         "socket"    =>  "ConsumerStrategies_SocketConsumer"
     );
 
